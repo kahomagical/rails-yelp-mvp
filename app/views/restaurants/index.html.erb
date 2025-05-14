@@ -1,0 +1,17 @@
+<div class=container>
+  <h1>Restaurants</h1>
+    <div>
+      <%= link_to new_restaurant_path do %>
+       <i class="fa-solid fa-plus"></i> Create a new restaurant
+      <% end %>
+    </div>
+
+    <% @restaurants.each do |restaurant| %>
+      <div class="card-product">
+      <img src="https://s2.qwant.com/thumbr/474x337/7/9/980b64c0b72f90cb6742ab6e269080806620bbd86e8f5c5e51b91d2d22f379/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.PMqWalG0o9orq9s5HezHpQHaFR%26pid%3DApi&q=0&b=1&p=0&a=0/">
+        <h2><%= link_to restaurant.name, restaurant_path(restaurant), class: "text-decoration-none text-black" %></h2>
+        <p><%= restaurant.category.capitalize %></p>
+      </div>
+    <% end %>
+
+</div>

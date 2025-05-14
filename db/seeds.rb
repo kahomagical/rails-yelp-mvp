@@ -7,3 +7,18 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+puts 'Cleaning out the DB...'
+Restaurant.destroy_all
+
+puts "Creating restaurants...."
+5.times do
+  # inside of the seeds, you can use Pet.create! to stop the seeds if it fails
+  Restaurant.create!(
+    name: Faker::Restaurant.name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    address: Faker::Address.street_address,
+    category: Restaurant::CATEGORIES.sample
+  )
+end
+puts "... created #{Restaurant.count} restaurants."

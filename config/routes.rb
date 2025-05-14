@@ -6,14 +6,20 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  resources :restaurants do
+    resources :reviews, only: [:new, :create]
+  end
 
   # index
-  # get "/restaurants", to: "restaurants#index", as: restaurants
-  # show
+  # get "/restaurants", to: "restaurants#index", as: :restaurants
 
-  # new
+  # # create
+  # get "/restaurants/new", to: "restaurants#new", as: :new_restaurant
+  # post "/restaurants", to: "restaurants#create"
 
-  # create
+  # # show
+  # get "/restaurants/:id", to: "restaurants#show", as: :restaurant
+
+
 
 end

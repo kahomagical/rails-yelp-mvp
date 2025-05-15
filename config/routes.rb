@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :reviews, only: [:new, :create]
   end
+end
 
+
+  # No need the followings
   # index
   # get "/restaurants", to: "restaurants#index", as: :restaurants
 
@@ -19,7 +22,3 @@ Rails.application.routes.draw do
 
   # # show
   # get "/restaurants/:id", to: "restaurants#show", as: :restaurant
-
-
-
-end

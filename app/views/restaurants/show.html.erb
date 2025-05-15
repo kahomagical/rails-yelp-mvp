@@ -3,16 +3,17 @@
   <p>Category <%= @restaurant.category.capitalize %></p>
   <p>Address <%= @restaurant.address %></p>
   <p>Phone <%= @restaurant.phone_number %></p>
-  <p>
-    <%= link_to "Home", restaurants_path, class: 'btn btn-primary' %>
-
-
   <p><strong>Reviews</strong></p>
-    <ul class="list-group">
+  <ul class="list-group">
+    <% if @restaurant.reviews.any?  %>
       <% @restaurant.reviews.each do |review| %>
         <li class="list-group-item"><%= review.content %></li>
       <% end %>
-    </ul>
+    <% else %>
+      <p>No reviews yet.</p>
+    <% end %>
+  </ul>
   <br>
-
+  <div><%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %></div>
+  <div><%= link_to "Back to list", restaurants_path %></div>
 </div>
